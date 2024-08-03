@@ -17,24 +17,27 @@ Petshop Finder é uma aplicação web desenvolvida para ajudar o Sr. Eduardo a e
 
 ```sh
 git clone https://github.com/seu-usuario/petshop-finder.git
-cd petshop-finderInstalando Dependências
+cd petshop-finder
+
+###Instalando Dependências
 
 ### Backend
 
 cd backend
 npm install
 
-Frontend
+###Frontend
 cd frontend
 npm install
-Executando o Backend
 
+###Executando o Backend
 
 cd backend
 npm run dev
 O backend será executado em http://localhost:5000.
 
-Executando o Frontend
+###Executando o Frontend
+
 Abra um novo terminal e execute:
 
 cd frontend
