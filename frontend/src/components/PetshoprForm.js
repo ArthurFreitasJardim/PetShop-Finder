@@ -5,8 +5,8 @@ import '../assets/styles/App.css';
 
 function PetshopForm() {
   const [date, setDate] = useState('');
-  const [smallDogs, setSmallDogs] = useState(0);
-  const [largeDogs, setLargeDogs] = useState(0);
+  const [smallDogs, setSmallDogs] = useState('');
+  const [largeDogs, setLargeDogs] = useState('');
   const [result, setResult] = useState(null);
 
   const handleClearInput = (e) => {
@@ -15,13 +15,28 @@ function PetshopForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:5000/api/petshop/calculate', {
-      date: date,
-      smallDogs: parseInt(smallDogs, 10),
-      largeDogs: parseInt(largeDogs, 10),
-    });
-    setResult(response.data);
+    console.log('handleSubmit foi chamado'); 
+
+    const smallDogsNum = Number(smallDogs);
+    const largeDogsNum = Number(largeDogs);
+    
+    if (smallDogsNum < 0 || largeDogsNum < 0) {
+      alert('A quantidade de cães não pode ser negativa.');
+      return;
+    }
+    try {
+      const response = await axios.post('http://localhost:5000/api/petshop/calculate', {
+        date: date,
+        smallDogs: smallDogsNum,
+        largeDogs: largeDogsNum,
+      });
+      setResult(response.data);
+    } catch (error) {
+      console.error('Erro ao calcular:', error);
+    }
   };
+
+  const isSubmitDisabled = Number(smallDogs) < 0 || Number(largeDogs) < 0;
 
   return (
     <div className='main-form'>
@@ -35,13 +50,25 @@ function PetshopForm() {
         </label>
         <label>
           Quantidade de cães pequenos:
-          <input type="number" value={smallDogs} onChange={(e) => setSmallDogs(e.target.value)} required onFocus={handleClearInput} />
+          <input 
+            type="number" 
+            value={smallDogs} 
+            onChange={(e) => setSmallDogs(e.target.value)} 
+            required 
+            onFocus={handleClearInput} 
+          />
         </label>
         <label>
           Quantidade de cães grandes:
-          <input type="number" value={largeDogs} onChange={(e) => setLargeDogs(e.target.value)} required onFocus={handleClearInput} />
+          <input 
+            type="number" 
+            value={largeDogs} 
+            onChange={(e) => setLargeDogs(e.target.value)} 
+            required 
+            onFocus={handleClearInput} 
+          />
         </label>
-        <button type="submit">Calcular</button>
+        <button type="submit" disabled={isSubmitDisabled}>Calcular</button>
       </form>
       {result && <PetshopResult result={result} />}
     </div>
