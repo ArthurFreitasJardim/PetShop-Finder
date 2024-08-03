@@ -16,7 +16,7 @@ Petshop Finder é uma aplicação web desenvolvida para ajudar o Sr. Eduardo a e
 ### Clonando o Repositório
 
 ```sh
-git clone https://github.com/seu-usuario/petshop-finder.git
+git clone https://github.com/ArthurFreitasJardim/PetShop-Finder.git
 cd petshop-finder
 
 ###Instalando Dependências
