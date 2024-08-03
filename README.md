@@ -59,10 +59,6 @@ npm test
 ```
 ## Lista de premissas:
 
-Formato da Data:
-
-- A data fornecida pelo usuário deve estar em um formato válido e reconhecível pelo JavaScript (YYYY-MM-DD).
-
 - Os preços dos banhos são consistentes para cada petshop e não variam além das condições específicas de dias da semana (finais de semana versus dias úteis).
 
 - Para o petshop "Meu Canino Feliz", o preço durante os finais de semana é aumentado em 20%. Para outros petshops, os preços não mudam entre dias úteis e finais de semana (exceto onde explicitamente indicado).
@@ -72,12 +68,19 @@ Formato da Data:
 - A interface do usuário é projetada para ser simples e direta, com apenas os campos necessários para a entrada de dados e visualização do resultado.
 
 ## Decisões de Projeto
+
 - Backend para lógica: A lógica de cálculo e seleção do petshop é feita no backend.
+
 - Tecnologias: React no frontend, Node.js com Express no backend e Axios na comunicação.
+
 - Estilização: CSS básico, com possibilidade de melhorias futuras.
+
 - Critério de desempate: Menor distância em caso de empate de preços.
+
 - Logs de depuração: Logs no backend para facilitar a resolução de problemas.
+
 - Componentes reutilizáveis: Uso de componentes reutilizáveis em React para fácil manutenção e expansão.
+
 - Comando para testes.
 
 ## 
