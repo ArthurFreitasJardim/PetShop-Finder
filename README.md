@@ -30,12 +30,12 @@ cd backend
 npm install
 
 ###Frontend
-cd frontend
+cd ../frontend
 npm install
 
 ###Executando o Backend
 
-cd backend
+cd ../backend
 npm run dev
 O backend será executado em http://localhost:5000.
 
@@ -43,6 +43,7 @@ O backend será executado em http://localhost:5000.
 
 Abra um novo terminal e execute:
 
+cd PetShop-Finder
 cd frontend
 npm run dev
 
@@ -52,6 +53,7 @@ O frontend será executado em http://localhost:3000.
 
 Abra um novo terminal e execute:
 
+cd PetShop-Finder
 cd backend
 npm test
 ```
